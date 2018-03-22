@@ -1,0 +1,19 @@
+{
+  "name": "app-client",
+  "description": "TW Protection LLC - Coverage for when the rubber hits the road.",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-scripts": "^1.1.1",
+    "react-stripe-checkout": "^2.6.3"
+  }
+}
