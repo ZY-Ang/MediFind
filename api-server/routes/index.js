@@ -1,10 +1,11 @@
 const paymentAPI = require('./payment');
-const express = require('express');
-const router = express.Router();
 
-
+/**
+ * Dummy test route. Call GET from authorized CORS to test out.
+ * TODO: Remove this test function once you get how to use API calls with {@code app}
+ */
 const test = (app) => {
-    router.get('/testy', (req, res) => {
+    app.get('/testy', (req, res) => {
         res.send({name: 'I am a dummy json', description: 'dummy text here'});
     });
 };

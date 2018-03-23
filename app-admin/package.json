@@ -9,6 +9,9 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
+  "optionalDependencies": {
+    "fsevents": "*"
+  },
   "dependencies": {
     "react": "^16.2.0",
     "react-dom": "^16.2.0",

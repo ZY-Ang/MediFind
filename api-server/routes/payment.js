@@ -1,4 +1,4 @@
-const stripe = require('../constants/stripe');
+const stripe = require('../config/stripe');
 
 /**
  * Handles a post request's {@param res} from
