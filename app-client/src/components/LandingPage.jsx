@@ -66,9 +66,15 @@ class LandingPage extends Component {
     componentWillReceiveProps(nextProps) {
         let nextWords = nextProps.transcript.split(' ');
         if (!this.state.isRecording) {
+            if (nextWords.length > 10) {
+                this.setState(byPropKey('notFoundTimeout', setTimeout(() => {
+                    this.props.stopListening();
+                    this.setState(byPropKey('isRecording', false));
+                    this.setState(byPropKey('autoText', ""));
+                }, 5000)));
+            }
             if (nextWords.length > 1 &&
-                levenshteinDistance(nextWords[nextWords.length - 1], "Google") < 1 &&
-                levenshteinDistance(nextWords[nextWords.length - 2], "hey") < 1) {
+                levenshteinDistance(nextWords[nextWords.length - 1], "Google") < 1) {
                 this.onRecord();
             }
         } else {
