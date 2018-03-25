@@ -9,8 +9,10 @@ const database = {
     panadol: 1,
     painkiller: 1,
     antibiotics: 2,
+    Prozac: 2,
     aspirin: 3,
-    paracetemol: 4
+    paracetemol: 4,
+    Adderall: 3
 };
 
 class LandingPage extends Component {
@@ -21,7 +23,8 @@ class LandingPage extends Component {
             manualText: "",
             isRecording: false,
             test: "",
-            notFoundTimeout: null
+            notFoundTimeout: null,
+            otherTimeout: null
         };
     }
 
@@ -67,10 +70,10 @@ class LandingPage extends Component {
         let nextWords = nextProps.transcript.split(' ');
         if (!this.state.isRecording) {
             if (nextWords.length > 10) {
-                this.setState(byPropKey('notFoundTimeout', setTimeout(() => {
-                    this.props.stopListening();
-                    this.setState(byPropKey('isRecording', false));
+                this.setState(byPropKey('otherTimeout', setTimeout(() => {
+                    this.props.resetTranscript();
                     this.setState(byPropKey('autoText', ""));
+                    clearTimeout(this.state.otherTimeout);
                 }, 5000)));
             }
             if (nextWords.length > 1 &&
