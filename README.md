@@ -30,6 +30,7 @@ The following frameworks and technologies were used for this project:
 This project is meant as a submission for HackNYU 2018 healthcare/assistive technology track.
 
 ### Installation
-1. Load arduino_code onto your arduino and the necessary components to the appropriate ports.
-2. Install nodejs and run `node index.js` from the `api-server` directory.
-3. Run `npm start` from the `app-client` directory to run the React front end application.
+1. Load arduino_code onto your arduino and the necessary components to the appropriate ports. Visit [arduino's website](http://arduino.cc) to figure out how.
+2. Make sure you have [nodejs](https://nodejs.org/en/) and [npm](https://www.npmjs.com/) installed.
+3. Install nodejs and run `npm install`. Then, run `node index.js` from the `api-server` directory.
+4. Run `npm install` and then, `npm start` from the `app-client` directory to run the React front end application.

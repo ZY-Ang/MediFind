@@ -96,7 +96,7 @@ class LandingPage extends Component {
                 // this.props.stopListening();
                 this.setState(byPropKey('isRecording', false));
                 this.setState(byPropKey('autoText', ""));
-                this.setState(byPropKey('test', "Sorry, we are unable to find a match!"));
+                this.setState(byPropKey('test', "Sorry, we didn't get that!"));
             }, 10000)
         ));
         if (event) {
