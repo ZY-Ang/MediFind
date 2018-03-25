@@ -1,0 +1,11 @@
+/*Throbber styles and animation*/
+
+.throbber {
+    animation: throbber-logo-spin infinite 1s alternate-reverse linear;
+    height: 80px;
+}
+
+@keyframes throbber-logo-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(200deg); }
+}

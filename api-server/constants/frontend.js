@@ -24,9 +24,9 @@ const FRONTEND_DEVELOPMENT_URLS = [
  * TODO: add conditional validation for domain access control.
  */
 const FRONTEND_PRODUCTION_URLS = [
-    'https://twprotection.com',
-    'https://app.twprotection.com',
-    'https://admin.twprotection.com'
+    'https://medifind.com',
+    'https://app.medifind.com',
+    'https://admin.medifind.com'
 ];
 
 module.exports = process.env.NODE_ENV === 'production'

@@ -1,0 +1,67 @@
+// Hack NYU woohoo
+
+#define LED1 4
+#define LED2 3
+#define LED3 2
+#define LED4 6
+
+int blinks = 30;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(LED1, OUTPUT);
+  pinMode(LED2, OUTPUT);
+  pinMode(LED3, OUTPUT);
+  pinMode(LED4, OUTPUT);
+}
+
+int i = 0;
+
+void loop() {
+  while (Serial.available() > 0) {
+    String received = Serial.readString();
+    Serial.println(received);
+
+    // Process message when new line character is received
+    if (received.charAt(0) == '1') {
+      while (i < blinks) {
+        i += 1;
+        digitalWrite(LED1, HIGH);
+        delay(100);
+        digitalWrite(LED1, LOW);
+        delay(100);
+      }
+    }
+
+    else if (received.charAt(0) == '2') {
+      while (i < blinks) {
+        i += 1;
+        digitalWrite(LED2, HIGH);
+        delay(100);
+        digitalWrite(LED2, LOW);
+        delay(100);
+      }
+    }
+
+    else if (received.charAt(0) == '3') {
+      while (i < blinks) {
+        i += 1;
+        digitalWrite(LED3, HIGH);
+        delay(100);
+        digitalWrite(LED3, LOW);
+        delay(100);
+      }
+    }
+
+    else if (received.charAt(0) == '4') {
+      while (i < blinks) {
+        i += 1;
+        digitalWrite(LED4, HIGH);
+        delay(100);
+        digitalWrite(LED4, LOW);
+        delay(100);
+      }
+    }
+    i = 0;
+  }
+}

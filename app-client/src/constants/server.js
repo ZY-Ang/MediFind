@@ -6,8 +6,8 @@
  * @type {string}
  */
 
-const SERVER_API_LIVE_URL = 'https://api.twprotection.com';
-const SERVER_API_TEST_URL = 'http://localhost:8080/stripePayment';
+const SERVER_API_LIVE_URL = 'https://api.medifind.com';
+const SERVER_API_TEST_URL = 'http://localhost:8080';
 
 const PAYMENT_SERVER_URL = process.env.NODE_ENV === 'production'
     ? SERVER_API_LIVE_URL

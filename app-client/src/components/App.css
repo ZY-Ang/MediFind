@@ -1,0 +1,57 @@
+.App {
+    text-align: center;
+}
+
+.App-header {
+    background-color: #c3e6ff;
+    padding: 20px;
+    color: black;
+}
+.react-logo {
+    animation: react-logo-spin infinite 20s linear;
+    height: 60px;
+}
+
+@keyframes react-logo-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.App-title {
+    font-size: 1.5em;
+}
+
+.App-intro {
+    font-size: large;
+}
+
+/*Route Transition Animations*/
+.fade-enter {
+    position: absolute;
+    width: 100%;
+    opacity: 0.01;
+    z-index: 1;
+}
+
+.fade-enter.fade-enter-active {
+    position: absolute;
+    width: 100%;
+    opacity: 1;
+    transition: opacity 250ms ease-in;
+    z-index: 1;
+}
+
+.fade-exit {
+    position: absolute;
+    width: 100%;
+    opacity: 1;
+    z-index: 1;
+}
+
+.fade-exit.fade-exit-active {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 250ms ease-in;
+    z-index: 1;
+}
