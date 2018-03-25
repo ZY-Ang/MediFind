@@ -65,33 +65,43 @@ class LandingPage extends Component {
 
     componentWillReceiveProps(nextProps) {
         let nextWords = nextProps.transcript.split(' ');
-        nextWords.map(word => {
-            let dataArray = Object.keys(database).map(medicine => ({
-                medicine: medicine,
-                value: database[medicine],
-                distance: levenshteinDistance(word, medicine)
-            })).sort((a, b) => (a.distance - b.distance));
-            if (dataArray[0].distance < 2) {
-                this.onRecordingFound(dataArray[0].value, dataArray[0].medicine);
+        if (!this.state.isRecording) {
+            if (nextWords.length > 1 &&
+                levenshteinDistance(nextWords[nextWords.length - 1], "Google") < 1 &&
+                levenshteinDistance(nextWords[nextWords.length - 2], "hey") < 1) {
+                this.onRecord();
             }
-        });
+        } else {
+            nextWords.map(word => {
+                let dataArray = Object.keys(database).map(medicine => ({
+                    medicine: medicine,
+                    value: database[medicine],
+                    distance: levenshteinDistance(word, medicine)
+                })).sort((a, b) => (a.distance - b.distance));
+                if (dataArray[0].distance < 2) {
+                    this.onRecordingFound(dataArray[0].value, dataArray[0].medicine);
+                }
+            });
+        }
         this.setState(byPropKey('autoText', nextProps.transcript));
     }
 
     onRecord = (event) => {
         this.setState(byPropKey('isRecording', true));
         // start listening
-        this.props.startListening();
+        // this.props.startListening();
         this.setState(byPropKey('notFoundTimeout',
             setTimeout(() => {
                 this.props.resetTranscript();
-                this.props.stopListening();
+                // this.props.stopListening();
                 this.setState(byPropKey('isRecording', false));
                 this.setState(byPropKey('autoText', ""));
                 this.setState(byPropKey('test', "Sorry, we are unable to find a match!"));
             }, 10000)
         ));
-        event.preventDefault();
+        if (event) {
+            event.preventDefault();
+        }
     };
 
     onRecordingFound = (trayNum, medicine) => {
@@ -99,14 +109,14 @@ class LandingPage extends Component {
             .then(({data}) => {
                 this.setState(byPropKey('test', data.value));
                 this.props.resetTranscript();
-                this.props.stopListening();
+                // this.props.stopListening();
                 this.setState(byPropKey('autoText', ""));
                 clearTimeout(this.state.notFoundTimeout);
                 this.setState(byPropKey('isRecording', false));
             })
             .catch(err => {
                 this.props.resetTranscript();
-                this.props.stopListening();
+                // this.props.stopListening();
                 this.setState(byPropKey('test', err.message));
                 this.setState(byPropKey('autoText', ""));
                 clearTimeout(this.state.notFoundTimeout);
@@ -161,4 +171,4 @@ class LandingPage extends Component {
     }
 }
 
-export default withSpeechRecognition({autoStart: false})(LandingPage);
+export default withSpeechRecognition(LandingPage);

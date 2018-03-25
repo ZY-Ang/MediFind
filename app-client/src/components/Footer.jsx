@@ -14,8 +14,7 @@ const iconStyle = {
  */
 const Footer = () => {
     return (
-        <div>
-            <hr/>
+        <div style={{position: 'absolute', bottom: 0, width: '100%'}} className="pb-3">
             <footer>
                 <div className="text-center lead">STACK | <img style={iconStyle} src={nodeExpress} alt="ReactJS"/> | <img className="react-logo" src={react} alt="ReactJS"/> | <img style={iconStyle} src={gcloud} alt="Google Cloud Speech"/> | <img style={iconStyle} src={arduino} alt="Arduino 101"/></div>
                 <div className="text-center mt-2">&copy; Copyright {getCurrentYear()}, {'MediFind™'}</div>
