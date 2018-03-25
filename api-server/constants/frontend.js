@@ -12,6 +12,8 @@ const FRONTEND_DEVELOPMENT_URLS = [
     'http://localhost:3001',
     'http://localhost:3002',
     'http://localhost:3003',
+    'http://172.27.223.83:8080',
+    'http://127.0.0.1:8080',
     'http://172.16.1.248:3000',
     'http://172.16.1.248:8080',
     'http://172.16.1.248:3001',
